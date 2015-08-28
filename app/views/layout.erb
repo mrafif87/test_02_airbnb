@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    Appending bootstrap css
+  -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title></title>
+</head>
+
+
+<body>
+  <div class="container">
+  <!-- <br> -->
+  <!-- <div class="jumbotron"> -->
+    <h1>airbnb Pirate</h1>
+    <p>This is a demo of the pirate <b>airbnb</b></p>
+  <!-- </div> -->
+  <!-- <br> -->
+  </div>
+
+  <%= yield %>
+  
+  <div class="container">
+    <hr>
+    <% if not session[:message].nil? %>
+      <div class="alert alert-<%= session[:message_type] %>" role="alert"><%= session[:message] %></div>
+      <% session[:message] = nil %>
+      <% session[:message_type] = nil %>
+    <% end %>
+  </div>
+
+</body>
+</html>

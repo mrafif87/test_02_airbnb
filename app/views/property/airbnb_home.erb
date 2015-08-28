@@ -1,0 +1,27 @@
+<div class="container">
+	<form id = "CurrentUser" action="/" method="GET">
+		<p><b>Current User:</b> ID: <%= session[:name] %> Name: <%= session[:name] %> <button type="submit" class="btn btn-default" color: "blue">Sign Out</button></p> 
+	</form>
+
+
+	<form id = "MyAdvertisement" action="/advertisement" method="GET">
+	<button type="submit" class="btn btn-default">Manage My Advertisement</button>
+
+	<form id = "MyBooking" action="/booking" method="GET">
+		<button type="submit" class="btn btn-default">Manage My Booking</button>
+	</form> 
+	</form>
+<!-- 
+	<br>
+	<h3>Advertise Your Property</h3>
+	<br>
+	<form id="CreateProperty" action="/add_property" method="POST">
+		<p><b>Post Title:</b></p><p> <input name="new[prop_name]" type="text"></p>
+		<p> <b>Price:</b></p><p><input name="new[price]" type="text" cols="2"></p>
+		 <p><b>Details of the property:</b></p><textarea name="new[prop_details]" rows="5" cols="60"></textarea>
+		 <p>Tags: (separated with comma ',')</p>
+		 <p><input type="text" name="tag" multiple></p>
+		 <input type="submit" name="Post it!">
+	</form>
+	<br> -->
+</div>

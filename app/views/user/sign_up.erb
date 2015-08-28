@@ -1,0 +1,21 @@
+<div class="container">
+	<br>
+	<h1 for="LoginForm">Please Sign Up</h1>
+	<br>
+	<form id="LoginForm" action="/sign_up" method="POST">
+		<div class="form-group">
+			<label for="SignUpEmail" >Email address</label>
+			<input type="email" class="form-control" id="SignUpEmail" name="sign_up_email" placeholder="your.name@mailbox.com" required>
+		</div>
+		<div class="form-group">
+			<label for="SignUpPassword">Password</label>
+			<input type="password" class="form-control" id="SignUpPassword" name="sign_up_password" placeholder="password" required>
+		</div>
+		<div class="form-group">
+			<label for="SignUpName">Name</label>
+			<input type="text" class="form-control" id="SignUpName" name="sign_up_name" placeholder="John Doe" required>
+		</div>
+		<button type="submit" class="btn btn-primary">Sign Up</button>
+	</form>
+	<br>
+</div>
