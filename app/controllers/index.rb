@@ -27,6 +27,7 @@ get '/home' do
 		session[:message_type] = "danger"
 		redirect to "/"
 	end
+	@all_properties = Property.all
 	erb :'property/airbnb_home'
 end
 

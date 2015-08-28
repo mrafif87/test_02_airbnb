@@ -11,17 +11,43 @@
 		<button type="submit" class="btn btn-default">Manage My Booking</button>
 	</form> 
 	</form>
-<!-- 
-	<br>
-	<h3>Advertise Your Property</h3>
-	<br>
-	<form id="CreateProperty" action="/add_property" method="POST">
-		<p><b>Post Title:</b></p><p> <input name="new[prop_name]" type="text"></p>
-		<p> <b>Price:</b></p><p><input name="new[price]" type="text" cols="2"></p>
-		 <p><b>Details of the property:</b></p><textarea name="new[prop_details]" rows="5" cols="60"></textarea>
-		 <p>Tags: (separated with comma ',')</p>
-		 <p><input type="text" name="tag" multiple></p>
-		 <input type="submit" name="Post it!">
-	</form>
-	<br> -->
+
+</div>
+
+<div class = "container">
+	<table class="table table-hover">
+			<tr>
+				<td> ID </td>
+				<td> PROPERTY NAME </td>
+				<td> PROPERTY DETAILS </td>
+				<td> PRICE (RM) </td>
+				<td> POSTED BY </td>
+				<td> BOOK </td>
+			</tr>
+			<% if not @all_properties.nil? %>
+				<% @all_properties.each do |row| %>
+					<tr>
+						<td>
+							<%= row.id.to_s %>
+						</td>
+						<td>
+							<%= row.prop_name %>
+						</td>
+						<td>
+							<%= row.prop_details %>
+						</td>
+						<td>
+							<%= row.price %>
+						</td>
+						<td>
+							<%= row.user.name %>
+						</td>
+						<td>
+							Book_Now
+						</td>
+					</tr>
+				<% end %>
+				 <% @all_properties = nil %>
+			<% end %>
+		</table>
 </div>
