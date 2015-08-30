@@ -1,6 +1,6 @@
 <div class="container">
 	<form id = "CurrentUser" action="/" method="GET">
-		<p><b>Current User:</b> ID: <%= session[:name] %> Name: <%= session[:name] %> <button type="submit" class="btn btn-default">Sign Out</button></p> 
+		<p><b>Current User:</b> ID: <%= session[:name] %> Name: <%= session[:name] %> <button type="submit" class="btn btn-default">Sign Out</button> <a href="/home">Back to home</a></p> 
 	</form>
 
 	<h3>Advertise Your Property</h3>
@@ -11,22 +11,23 @@
 		<p> <b>Price:</b></p><p><input name="new[price]" type="text" cols="2"></p>
 		 <p><b>Details of the property:</b></p><textarea name="new[prop_details]" rows="5" cols="60"></textarea>
 		 <p>Tags: (separated with comma ',')</p>
-		 <p><input type="text" name="tag" multiple></p>
+		 <p><input type="text" name="tag"></p>
 		 <button type="submit" class="btn btn-default">Submit</button></p>
 	</form>
 <% else %>
 	<% @tags=""%> 
 	<% @property_to_edit.tags.each do |tag| %>
-		<% @tags+= "#{tag.tag_name}, "%>
+		<% @tags+= "#{tag.tag_name},"%>
 	<%end%>
-	<form id="CreateProperty" action="/edit_property" method="POST">
+	<form id="CreateProperty" action="/edit_update" method="POST">
 		<p><b>Post Title:</b></p><p> <input name="new[prop_name]" type="text" value = <%= @property_to_edit.prop_name %>></p>
 		<p> <b>Price:</b></p><p><input name="new[price]" type="text" cols="2" value=<%= @property_to_edit.price %>></p>
 		 <p><b>Details of the property:</b></p><textarea name="new[prop_details]" rows="5" cols="60"><%= @property_to_edit.prop_name.to_s%></textarea>
-		 <p>Tags: (separated with comma ', ')</p>
+		 <p>Tags: (separated with comma ',')</p>
 		 <p><input type="text" name="tag" value=<%= @tags %> ></p>
-		 <button type="submit" class="btn btn-default">Update</button></p>
+		 <p><button type="submit" class="btn btn-default">Update</button><p>    
 	</form>
+	<a href="/edit_cancel"><button class="btn btn-default" type = "cancel">Cancel</button></a>
 <% end %>
 </div>
 
@@ -58,7 +59,7 @@
 							<%= row.price %>
 						</td>
 						<td>
-							<%= row.user.name %>
+	
 						</td>
 						<td>
 							<% row.tags.each do |tag| %>
@@ -66,8 +67,8 @@
 							<%end%>
 						</td>
 						<td>
-							<a  href="/edit/<%= row.id.to_s %>"><button style="background-color:green">Edit</button></a>
-							<a href="/delete/<%= row.id.to_s %>/delete"><button style="background-color:red">Delete</button></a>
+							<a  href="/edit/<%= row.id.to_s %>"><button>Edit</button></a>
+							<a href="/delete/<%= row.id.to_s %>"><button>Delete</button></a>
 						</td>
 					</tr>
 				<% end %>

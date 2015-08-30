@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :properties#, class_name:"Property", foreign_key: ""
+	has_many :properties, dependent: :destroy#, class_name:"Property", foreign_key: ""
 
 	has_many :user_properties
   	has_many :properties, :through => :user_properties
